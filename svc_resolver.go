@@ -35,10 +35,10 @@ func (r *Resolver) SetDomainSuffix(sfx string) {
 // Target get target key, we need to hashable key for cache,
 // but EndpointInfo is a interface, so just exchange it to string(or? no hashable type with golang)
 func (r *Resolver) Target(ctx context.Context, target rpcinfo.EndpointInfo) string {
-	targetPsm := target.ServiceName()
-	targetSvcPfx := strings.ReplaceAll(targetPsm, ".", "-")
+	svcName := target.ServiceName()
+	targetSvcPfx := strings.ReplaceAll(svcName, ".", "-")
 	targetSvcPfx = strings.ReplaceAll(targetSvcPfx, "_", "-")
-	svcHost := fmt.Sprintf("%s", targetSvcPfx) // p-s-m
+	svcHost := fmt.Sprintf("%s", targetSvcPfx) // a-b-c
 	if r.namespace != "" {
 		svcHost = fmt.Sprintf("%s.%s.%s", svcHost, r.namespace, r.domainSfx)
 	}

@@ -1,0 +1,42 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Go template
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# VSCode debug bin
+__debug_bin
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+# build output
+output
+
+# dev config file
+vendor/*
+
+# macos garbage
+.DS_Store
+
+#kitex_gen
+kitex_gen/
+collections

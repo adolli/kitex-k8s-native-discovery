@@ -2,30 +2,26 @@ package kitex_k8s_native_discovery
 
 import (
 	"github.com/cloudwego/kitex/client"
-	"time"
 )
 
-type ProDeployEnv struct {
+type SvcDiscovery struct {
 	client.Suite
 	namespace string
 }
 
-func NewDiscoveryWithNamespace(namespace string) *ProDeployEnv {
-	return &ProDeployEnv{
+func NewDiscoveryWithNamespace(namespace string) *SvcDiscovery {
+	return &SvcDiscovery{
 		namespace: namespace,
 	}
 }
 
-func NewDiscovery() *ProDeployEnv {
-	return &ProDeployEnv{
-	}
+func NewDiscovery() *SvcDiscovery {
+	return &SvcDiscovery{}
 }
 
-func (e *ProDeployEnv) Options() []client.Option {
+func (e *SvcDiscovery) Options() []client.Option {
 	resolver := NewResolverWithNamespace(e.namespace)
 	return []client.Option{
 		client.WithResolver(resolver),
-		client.WithRPCTimeout(10 * time.Second),
-		client.WithConnectTimeout(3 * time.Second),
 	}
 }
